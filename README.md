@@ -9,22 +9,22 @@ Not everyone has the privilege to buy clothes that would be used only once for a
 Following techs may be used in development:
 
 #### Frontend:
-React
-Chakra UI
-TypeScript
+React <br/>
+Chakra UI <br/>
+TypeScript <br/>
+<br/>
 
 ### Backend:
-MongoDB
-Express (RestFUL API)
-Node
-
+MongoDB <br/>
+Express (RestFUL API) <br/>
+Node <br/>
+<br/>
 ### Miscellaneous:
-Redux
-JWT Auth
-Mu
+Redux <br/>
+JWT Auth <br/>
+<br/>
 
 ### Features to complete (later on..):
 Pagination
-
 Chating func
 Recommendation Sys
