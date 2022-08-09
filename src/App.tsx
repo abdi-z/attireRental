@@ -23,5 +23,5 @@ const App:React.FC = () =>{
     </>
   );
 }
-
+//added comment by daniyal
 export default App;
