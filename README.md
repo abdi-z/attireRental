@@ -23,6 +23,7 @@ JWT Auth <br/>
 <br/>
 
 ### Features to complete (later on..):
+Recommended Price Val <br/>
 Pagination <br/>
 Chating func <br/>
 Recommendation Sys <br/>

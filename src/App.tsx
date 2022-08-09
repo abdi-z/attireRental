@@ -8,11 +8,10 @@ import ContactUs from "./components/ContactUs";
 import Attires from "./components/Attire/Attires";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { useState } from "react";
 
-function App() {
+const App:React.FC = () =>{
   return (
-    <div className="">
+    <>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -21,7 +20,7 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 
