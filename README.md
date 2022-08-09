@@ -27,3 +27,4 @@ Recommended Price Val <br/>
 Pagination <br/>
 Chating func <br/>
 Recommendation Sys <br/>
+Dark Mode <br/>
