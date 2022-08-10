@@ -12,12 +12,12 @@ React <br/>
 Chakra UI <br/>
 TypeScript <br/>
 
-### Backend:
+#### Backend:
 MongoDB <br/>
 Express (RestFUL API) <br/>
 Node <br/>
 
-### Miscellaneous:
+#### Miscellaneous:
 Redux <br/>
 JWT Auth <br/>
 <br/>
