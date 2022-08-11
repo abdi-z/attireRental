@@ -12,6 +12,7 @@ import Login from "./components/auth/Login/Login";
 import NotFound from "./components/Essentials/NotFound/NotFound";
 import Togglemode from './components/Essentials/Togglemode'
 import { extendTheme, ChakraProvider } from '@chakra-ui/react'
+import AttireDetails from "./components/Attire/AttireDetails/AttireDetails";
 
 const colors = {
   brand: {
@@ -37,6 +38,7 @@ const App: React.FC = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/attires" element={<AllAttires />} />
+          <Route path="/details" element={<AttireDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

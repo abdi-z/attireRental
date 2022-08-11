@@ -2,10 +2,44 @@
 import React from "react";
 import { Box, Image, Badge } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
+import tshirt from '../../../images/tshirt.jpg'
+
+interface dummyAttires{
+
+  Attire:String,
+  AttireID:String,
+  CategoryID:String,
+  Title:String,
+  CreatedBy:String,
+  AvailabilityFlag:String,
+  MaxDays:String,
+  Image:String,
+  LocationID:String,
+  PriceID:String,
+  CreatedDate:String,
+  AttireType:String,
+  AttireDescriptiion:String
+  
+  }
 
 const SingleAttire: React.FC = () => {
+  // {dummyAttires.map{(dummyAttires)=> (
+
+  // )}}
+  // const property = {
+  //   AttireID: {dummyAttires.AttireID},
+  //   CategoryID: {dummyAttires.CategoryID},
+  //   Title: {dummyAttires.Title},
+  //   CreatedBy: {dummyAttires.CreatedBy},
+  //   AvailabilityFlag: {dummyAttires.AvailabilityFlag},
+  //   MaxDays: {dummyAttires.MaxDays},
+  //   Image: {dummyAttires.Image},
+  //   LocationID: {dummyAttires.LocationID},
+  //   PriceID: {dummyAttires.PriceID},
+  //   CreatedDate: {dummyAttires.CreatedDate}
+  // };
   const property = {
-    imageUrl: "https://bit.ly/2Z4KKcF",
+    imageUrl: tshirt,
     imageAlt: "Rear view of modern home with pool",
     beds: 3,
     baths: 2,
@@ -14,18 +48,18 @@ const SingleAttire: React.FC = () => {
     reviewCount: 34,
     rating: 4,
   };
-
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <Image src={property.imageUrl} alt={property.imageAlt} />
-
+    <Box bg="white.200" maxW="sm"  overflow="hidden">
+      <Box borderWidth="3px" borderRadius="xl">
+      <Image  src={property.imageUrl} alt={property.imageAlt} />
+      </Box>
       <Box p="6">
         <Box display="flex" alignItems="baseline">
           <Badge borderRadius="full" px="2" colorScheme="teal">
             New
           </Badge>
           <Box
-            color="gray.500"
+            color="red.500"
             fontWeight="semibold"
             letterSpacing="wide"
             fontSize="xs"
@@ -47,7 +81,7 @@ const SingleAttire: React.FC = () => {
         <Box>
           {property.formattedPrice}
           <Box as="span" color="gray.600" fontSize="sm">
-            / wk
+            / day
           </Box>
         </Box>
 
