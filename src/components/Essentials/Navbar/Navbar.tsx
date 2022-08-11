@@ -31,13 +31,16 @@ const Navbar: React.FC = () => {
     <>
       <nav className="navbar">
         <div className="left-items">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand link" to="/">
             Resigna
           </Link>
         </div>
         <SearchBar />
         <div className="right-items">
-          <Link to="/login">
+          <Link to="/dummy"></Link>
+          <Link to="/dummy"></Link>
+          <Link to="/dummy">More</Link>
+          <Link to="/login" >
             <Button
               display={{ base: "none", md: "inline-flex" }}
               fontSize={"sm"}
