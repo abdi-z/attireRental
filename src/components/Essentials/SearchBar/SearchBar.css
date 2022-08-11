@@ -4,10 +4,10 @@ body {
 
 .searchBox {
   position: absolute;
-  top: -3%;
+  top: -17%;
   left: 50%;
   transform: translate(-50%, 50%);
-  background: #2f3640;
+  background: #f56565;
   /* height: 40px; */
   border-radius: 40px;
   padding: 5px;
@@ -29,7 +29,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #2f3640;
+  background: #f56565;
   display: flex;
   justify-content: center;
   align-items: center;

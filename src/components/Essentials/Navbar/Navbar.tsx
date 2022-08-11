@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+// import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Box,
   Flex,
@@ -17,12 +18,16 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
+
+
+import user from "./user.png";
 import SearchBar from "../SearchBar/SearchBar";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  CheckIcon
 } from "@chakra-ui/icons";
 
 const Navbar: React.FC = () => {
@@ -37,30 +42,22 @@ const Navbar: React.FC = () => {
         </div>
         <SearchBar />
         <div className="right-items">
-          <Link to="/dummy"></Link>
-          <Link to="/dummy"></Link>
-          <Link to="/dummy">More</Link>
-          <Link to="/login" >
-            <Button
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"sm"}
-              fontWeight={600}
-              margin={1}
-              border={1}
-              rounded="md"
-              color={"black"}
-              bg="black.200"
-              _hover={{
-                color: "white",
-                bg: "red.300",
-              }}>
-              Login
-            </Button>
+          <Link className="link" to="/dummy">
+            How it works
           </Link>
+
+          <Link className="link" to="/dummy">
+            Earn
+          </Link>
+          <Link className="link" to="/dummy">
+            More
+            <ChevronDownIcon />
+          </Link>
+
           <Link to="/register">
             <Button
               display={{ base: "none", md: "inline-flex" }}
-              fontSize={"sm"}
+              fontSize={"md"}
               fontWeight={600}
               rounded="md"
               color={"white"}
@@ -68,7 +65,8 @@ const Navbar: React.FC = () => {
               _hover={{
                 bg: "red.300",
               }}>
-              Sign Up
+              Join Us 
+              <CheckIcon style={{paddingLeft:"5px"}}/>
             </Button>
           </Link>
         </div>
