@@ -6,12 +6,12 @@ import {
   Input,
   Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { Link } from "react-router-dom";
 
  const Login:React.FC  = () => {
   return (
@@ -23,6 +23,9 @@ import {
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+          <Text fontSize={'lg'} color={'gray.600'}>
+            to explore all amazing features ✌️
+          </Text>
         </Stack>
         <Box
           rounded={'lg'}
@@ -49,6 +52,9 @@ import {
                 Sign in
               </Button>
             </Stack>
+            <Text align={'center'}>
+                Not Registered yet? <Link color={'blue.400'} to="/register"> <Box as='span' color={"blue.400"}>Sign Up</Box> </Link>
+              </Text>
           </Stack>
         </Box>
       </Stack>

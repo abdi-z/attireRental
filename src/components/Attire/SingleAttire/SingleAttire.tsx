@@ -49,7 +49,8 @@ const SingleAttire: React.FC = () => {
     rating: 4,
   };
   return (
-    <Box bg="white.200" maxW="sm"  overflow="hidden">
+    <Box bg="white.200" maxW="sm"  overflow="hidden"  _hover={{ borderColor: "gray.200", bg: "gray.200" }}
+    >
       <Box borderWidth="3px" borderRadius="xl">
       <Image  src={property.imageUrl} alt={property.imageAlt} />
       </Box>
