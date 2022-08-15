@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
       <nav className="navbar">
         <div className="left-items">
           <Link className="navbar-brand link" to="/">
-            Resigna
+            Resigna .
           </Link>
         </div>
         <SearchBar />
