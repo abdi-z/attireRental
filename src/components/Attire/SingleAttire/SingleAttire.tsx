@@ -5,7 +5,7 @@ import { StarIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import tshirt from "../../../images/tshirt.jpg";
 import axios from "axios";
-import './SingleAttire.css'
+import "./SingleAttire.css";
 
 type GreetProps = {
   attire: {
@@ -46,16 +46,11 @@ const SingleAttire = (props: GreetProps) => {
   }, []);
 
   return (
-    <Box
-      bg="white.200"
-      maxW="sm"
-      overflow="hidden"
-      className="zoom"
-      >
+    <Box bg="white.200" maxW="sm" className="zoom">
       <Box>
         <Image src={props.attire.imageURL} borderRadius="xl" />
       </Box>
-      <Box p="6">
+      <Box p="3">
         <Box display="flex" alignItems="baseline">
           <Badge borderRadius="full" px="2" colorScheme="teal">
             New
