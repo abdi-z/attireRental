@@ -13,6 +13,7 @@ import NotFound from "./components/Essentials/NotFound/NotFound";
 import Togglemode from "./components/Essentials/Togglemode";
 import { extendTheme, ChakraProvider } from "@chakra-ui/react";
 import AttireDetails from "./components/Attire/AttireDetails/AttireDetails";
+import { CategoryDetail } from "./components/Attire/CategoryDetail/CategoryDetail";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 const colors = {
   brand: {
@@ -29,7 +30,6 @@ const App: React.FC = () => {
     <ChakraProvider theme={theme}>
       <>
         <BrowserRouter>
-        
           <Box bg={useColorModeValue("gray.50", "gray.800")}>
             <Navbar />
             <Routes>
@@ -40,6 +40,10 @@ const App: React.FC = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/attires" element={<AllAttires />} />
               <Route path="/attires/:id" element={<AttireDetails />} />
+              <Route
+                path="/attires/categories/:name"
+                element={<CategoryDetail />}
+              />
               <Route path="/details" element={<AttireDetails />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

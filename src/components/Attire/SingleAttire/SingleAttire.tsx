@@ -5,6 +5,7 @@ import { StarIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import tshirt from "../../../images/tshirt.jpg";
 import axios from "axios";
+import './SingleAttire.css'
 
 type GreetProps = {
   attire: {
@@ -35,7 +36,7 @@ const SingleAttire = (props: GreetProps) => {
           `http://localhost:5000/api/prices/${props.attire.priceID}`
         );
         setPrice(result.data.actualPrice);
-        console.log(price)
+        console.log(price);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -49,9 +50,10 @@ const SingleAttire = (props: GreetProps) => {
       bg="white.200"
       maxW="sm"
       overflow="hidden"
-      _hover={{ borderColor: "gray.200", bg: "gray.200" }}>
-      <Box borderWidth="3px" borderRadius="xl">
-        <Image src={props.attire.imageURL} />
+      className="zoom"
+      >
+      <Box>
+        <Image src={props.attire.imageURL} borderRadius="xl" />
       </Box>
       <Box p="6">
         <Box display="flex" alignItems="baseline">
