@@ -3,6 +3,7 @@ import "./CategoriesAttire.css";
 import { Link } from "react-router-dom";
 import shirt from "./shirt.jpg";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import { Tooltip } from "@chakra-ui/react";
 
 import axios from "axios";
 
@@ -49,12 +50,15 @@ export const CategoriesAttire = () => {
                   margin: "auto",
                 }}
               />
-              <h5
-                style={{
-                  margin: "auto",
-                }}>
-                {category.categoryName}
-              </h5>
+
+              <Tooltip label={category.categoryDescription} placement="top">
+                <h5
+                  style={{
+                    margin: "auto",
+                  }}>
+                  {category.categoryName}
+                </h5>
+              </Tooltip>
             </Link>
           ))
         )}
