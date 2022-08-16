@@ -2,59 +2,55 @@
 import React from "react";
 import { Box, Image, Badge } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
-import tshirt from '../../../images/tshirt.jpg'
+import { Link } from "react-router-dom";
+import tshirt from "../../../images/tshirt.jpg";
+import axios from "axios";
+import "./SingleAttire.css";
 
-interface dummyAttires{
-
-  Attire:String,
-  AttireID:String,
-  CategoryID:String,
-  Title:String,
-  CreatedBy:String,
-  AvailabilityFlag:String,
-  MaxDays:String,
-  Image:String,
-  LocationID:String,
-  PriceID:String,
-  CreatedDate:String,
-  AttireType:String,
-  AttireDescriptiion:String
-  
-  }
-
-const SingleAttire: React.FC = () => {
-  // {dummyAttires.map{(dummyAttires)=> (
-
-  // )}}
-  // const property = {
-  //   AttireID: {dummyAttires.AttireID},
-  //   CategoryID: {dummyAttires.CategoryID},
-  //   Title: {dummyAttires.Title},
-  //   CreatedBy: {dummyAttires.CreatedBy},
-  //   AvailabilityFlag: {dummyAttires.AvailabilityFlag},
-  //   MaxDays: {dummyAttires.MaxDays},
-  //   Image: {dummyAttires.Image},
-  //   LocationID: {dummyAttires.LocationID},
-  //   PriceID: {dummyAttires.PriceID},
-  //   CreatedDate: {dummyAttires.CreatedDate}
-  // };
-  const property = {
-    imageUrl: tshirt,
-    imageAlt: "Rear view of modern home with pool",
-    beds: 3,
-    baths: 2,
-    title: "Modern home in city center in the heart of historic Los Angeles",
-    formattedPrice: "$1,900.00",
-    reviewCount: 34,
-    rating: 4,
+type GreetProps = {
+  attire: {
+    _id: string;
+    categoryID: string;
+    title: string;
+    createdByID: string;
+    availabilityFlag: string;
+    maxDays: number;
+    imageURL: string;
+    locationID: string;
+    priceID: string;
+    createDate: string;
+    attireDescription: string;
   };
+};
+
+const SingleAttire = (props: GreetProps) => {
+  const [price, setPrice] = React.useState<any>(0);
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [location, setLocation] = React.useState<object>({});
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const result = await axios.get(
+          `http://localhost:5000/api/prices/${props.attire.priceID}`
+        );
+        setPrice(result.data.actualPrice);
+        console.log(price);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <Box bg="white.200" maxW="sm"  overflow="hidden"  _hover={{ borderColor: "gray.200", bg: "gray.200" }}
-    >
-      <Box borderWidth="3px" borderRadius="xl">
-      <Image  src={property.imageUrl} alt={property.imageAlt} />
+    <Box bg="white.200" maxW="sm" className="zoom">
+      <Box>
+        <Image src={props.attire.imageURL} borderRadius="xl" />
       </Box>
-      <Box p="6">
+      <Box p="3">
         <Box display="flex" alignItems="baseline">
           <Badge borderRadius="full" px="2" colorScheme="teal">
             New
@@ -66,7 +62,7 @@ const SingleAttire: React.FC = () => {
             fontSize="xs"
             textTransform="uppercase"
             ml="2">
-            {property.beds} beds &bull; {property.baths} baths
+            {10} beds &bull; {9} baths
           </Box>
         </Box>
 
@@ -76,11 +72,11 @@ const SingleAttire: React.FC = () => {
           as="h4"
           lineHeight="tight"
           noOfLines={1}>
-          {property.title}
+          {props.attire.title}
         </Box>
 
         <Box>
-          {property.formattedPrice}
+          {price && price}
           <Box as="span" color="gray.600" fontSize="sm">
             / day
           </Box>
@@ -90,13 +86,10 @@ const SingleAttire: React.FC = () => {
           {Array(5)
             .fill("")
             .map((_, i) => (
-              <StarIcon
-                key={i}
-                color={i < property.rating ? "teal.500" : "gray.300"}
-              />
+              <StarIcon key={i} color={i < 5 ? "teal.500" : "gray.300"} />
             ))}
           <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {property.reviewCount} reviews
+            {10} reviews
           </Box>
         </Box>
       </Box>
