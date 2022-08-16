@@ -49,6 +49,7 @@ export const CategoriesAttire = () => {
                 style={{
                   margin: "auto",
                 }}
+              
               />
 
               <Tooltip label={category.categoryDescription} placement="top">
