@@ -29,6 +29,7 @@ const App: React.FC = () => {
     <ChakraProvider theme={theme}>
       <>
         <BrowserRouter>
+        
           <Box bg={useColorModeValue("gray.50", "gray.800")}>
             <Navbar />
             <Routes>

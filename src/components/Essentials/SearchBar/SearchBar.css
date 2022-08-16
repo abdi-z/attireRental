@@ -4,13 +4,14 @@ body {
 
 .searchBox {
   position: absolute;
-  top: 10%;
+  top: -18%;
   left: 50%;
   transform: translate(-50%, 50%);
   background: #f56565;
   /* height: 40px; */
   border-radius: 40px;
   padding: 5px;
+  
 }
 
 .searchBox:hover > .searchInput {
