@@ -2,8 +2,8 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 // import { ChevronDownIcon } from "@chakra-ui/icons";
-import { useLogout } from '../../../hooks/useLogout'
-import { useAuthContext } from '../../../hooks/useAuthContext'
+import { useLogout } from "../../../hooks/useLogout";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 import {
   Box,
   Flex,
@@ -21,7 +21,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-
 import user from "./user.png";
 import SearchBar from "../SearchBar/SearchBar";
 import {
@@ -29,17 +28,18 @@ import {
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-  CheckIcon
+  CheckIcon,
 } from "@chakra-ui/icons";
 
 const Navbar: React.FC = () => {
   const { isOpen, onToggle } = useDisclosure();
-  const { logout } = useLogout()
-    const { user, email } = useAuthContext()
 
-    const handleClick = () => {
-      logout()
-    }
+  const { logout } = useLogout();
+  const { user, email } = useAuthContext();
+
+  const handleClick = () => {
+    logout();
+  };
   return (
     <>
       <nav className="navbar">
@@ -47,12 +47,12 @@ const Navbar: React.FC = () => {
           <Link className="navbar-brand link" to="/">
             Resigna .
           </Link>
-      {user && (
+          {user && (
             <div>
               <span>{email}</span>
               <button onClick={handleClick}>Log out</button>
             </div>
-            )}
+          )}
         </div>
         <SearchBar />
         <div className="right-items">
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
             More
             <ChevronDownIcon />
           </Link>
-          
+
           <Link to="/register">
             <Button
               display={{ base: "none", md: "inline-flex" }}
@@ -79,8 +79,8 @@ const Navbar: React.FC = () => {
               _hover={{
                 bg: "red.300",
               }}>
-              Join Us 
-              <CheckIcon style={{paddingLeft:"5px"}}/>
+              Join Us
+              <CheckIcon style={{ paddingLeft: "5px" }} />
             </Button>
           </Link>
         </div>

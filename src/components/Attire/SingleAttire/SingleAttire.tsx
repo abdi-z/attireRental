@@ -26,8 +26,9 @@ type GreetProps = {
 
 const SingleAttire = (props: GreetProps) => {
   const [price, setPrice] = React.useState<any>(0);
+
   const [loading, setLoading] = React.useState<boolean>(false);
-  const [location, setLocation] = React.useState<object>({});
+  const [location, setLocation] = React.useState<any>("empty");
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +38,11 @@ const SingleAttire = (props: GreetProps) => {
           `http://localhost:5000/api/prices/${props.attire.priceID}`
         );
         setPrice(result.data.actualPrice);
+        const result2 = await axios.get(
+          `http://localhost:5000/api/locationdetails/${props.attire.locationID}`
+        );
+        setLocation(result2.data.state);
+        console.log(location);
         console.log(price);
         setLoading(false);
       } catch (error) {
@@ -89,7 +95,7 @@ const SingleAttire = (props: GreetProps) => {
               <StarIcon key={i} color={i < 5 ? "teal.500" : "gray.300"} />
             ))}
           <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {2} reviews
+            {/* {location} */}
           </Box>
         </Box>
       </Box>
