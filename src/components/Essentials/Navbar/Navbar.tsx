@@ -2,6 +2,8 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 // import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useLogout } from '../../../hooks/useLogout'
+import { useAuthContext } from '../../../hooks/useAuthContext'
 import {
   Box,
   Flex,
@@ -32,6 +34,12 @@ import {
 
 const Navbar: React.FC = () => {
   const { isOpen, onToggle } = useDisclosure();
+  const { logout } = useLogout()
+    const { user } = useAuthContext()
+
+    const handleClick = () => {
+      logout()
+    }
   return (
     <>
       <nav className="navbar">
@@ -39,8 +47,14 @@ const Navbar: React.FC = () => {
           <Link className="navbar-brand link" to="/">
             Resigna .
           </Link>
+      {user && (
+            <div>
+              <span>{user.email}</span>
+              <button onClick={handleClick}>Log out</button>
+            </div>
+            )}
         </div>
-        <SearchBar />
+        {/* <SearchBar /> */}
         <div className="right-items">
           <Link className="link" to="/dummy">
             How it works
@@ -53,7 +67,7 @@ const Navbar: React.FC = () => {
             More
             <ChevronDownIcon />
           </Link>
-
+          
           <Link to="/register">
             <Button
               display={{ base: "none", md: "inline-flex" }}
