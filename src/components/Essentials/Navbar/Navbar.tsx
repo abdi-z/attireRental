@@ -35,7 +35,7 @@ import {
 const Navbar: React.FC = () => {
   const { isOpen, onToggle } = useDisclosure();
   const { logout } = useLogout()
-    const { user } = useAuthContext()
+    const { user, email } = useAuthContext()
 
     const handleClick = () => {
       logout()
@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
           </Link>
       {user && (
             <div>
-              <span>{user.email}</span>
+              <span>{email}</span>
               <button onClick={handleClick}>Log out</button>
             </div>
             )}

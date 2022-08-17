@@ -13,22 +13,44 @@ import {
 } from '@chakra-ui/react';
 import { Link } from "react-router-dom";
 import React, {useState} from 'react'
-import  { useLogin } from "../../../hooks/useLogin"
-
+import Axios from 'axios';
+import { useAuthContext} from '../../../hooks/useAuthContext'
+import { useNavigate } from 'react-router-dom';
 
  const Login  = () => {
-
+  const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const {login, error, isLoading} = useLogin()
+  const [error, setError] = useState("")
+  // const {login, error, isLoading} = useLogin()
+  const { dispatch } = useAuthContext()
 
-  // const handleSubmit = async (e: any) => {
-  //   e.preventDefault()
-  //   //debugging
-  //   console.log("email is: "+email,"password is: "+password)
-
-  //   await login(email, password)
-  // }
+  const handleSubmit = (e:any) => {
+    e.preventDefault();
+    Axios
+      .post("api/users/login", {
+        email,
+        password,
+      })
+      .then((token:any) => {
+        console.log(token.data);
+        localStorage.setItem("user", JSON.stringify(token.data));
+        navigate('/')
+        setPassword("");
+        // update the auth context
+        dispatch({type: 'LOGIN', payload: token.data, payload2:email})
+      })
+      .catch((error) => {
+        if(error.response.status  == 400){
+          setError("Email not exist")
+        }
+        if(error.response.status  == 401){
+          
+          setError("Wrong Password")
+        }
+        });
+        setPassword("");
+      };
 
   return (
     // <Flex
@@ -107,6 +129,7 @@ import  { useLogin } from "../../../hooks/useLogin"
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'lg'}
           p={8}
+          onSubmit={handleSubmit}
     className="login" >
      <Box as='h3'
      m={1}
@@ -128,8 +151,8 @@ import  { useLogin } from "../../../hooks/useLogin"
 
      <button 
      
-     disabled={isLoading}>Log In</button>
-     {error && <div className="error">{error}</div>}
+     >Log In</button>
+     {!(error=="") && <div className="error">{error}</div>}
    </Box>
    </Stack>
    </Stack>
