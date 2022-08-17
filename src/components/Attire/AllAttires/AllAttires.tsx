@@ -3,7 +3,9 @@ import React from "react";
 import { Box, Button, Flex, SimpleGrid } from "@chakra-ui/react";
 import SingleAttire from "../SingleAttire/SingleAttire";
 import { Link } from "react-router-dom";
+import { Spinner } from "@chakra-ui/react";
 import { CategoriesAttire } from "../CategoriesAttire/CategoriesAttire";
+
 import axios from "axios";
 
 const AllAttires: React.FC = () => {
@@ -27,19 +29,22 @@ const AllAttires: React.FC = () => {
 
   return (
     <div>
-      <CategoriesAttire/>
-      <SimpleGrid m={10} minChildWidth="240px" spacing="60px" bg="grey.400">
+      <CategoriesAttire />
+      <SimpleGrid
+        m={10}
+        minChildWidth="240px"
+        spacing="60px"
+        bg="grey.400"
+        style={{ position: "relative" }}>
         {/* ))}
          */}
         {error && <p>Something went wrong...</p>}
         {loading ? (
-          <p>Loading...</p>
+          <Spinner style={{ position: "absolute", top: "100%", left: "50%" }} />
         ) : (
           attires.map((attire: any) => (
             <>
-              <Link to={`/attires/${attire._id}`}
-              state={attire}
-              >
+              <Link to={`/attires/${attire._id}`} state={attire}>
                 <SingleAttire attire={attire} />
               </Link>
             </>
