@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import tshirt from "../../../images/tshirt.jpg";
 import axios from "axios";
 import "./SingleAttire.css";
+import Spinner from "@chakra-ui/react";
 
 type GreetProps = {
   attire: {
@@ -76,10 +77,9 @@ const SingleAttire = (props: GreetProps) => {
         </Box>
 
         <Box>
-          {price && price}
-          <Box as="span" color="gray.600" fontSize="sm">
-            / day
-          </Box>
+          <h5>Rental Price:</h5>
+          {price && <>Rs. {price}</>}
+          <Box as="span" color="gray.600" fontSize="sm"></Box>
         </Box>
 
         <Box display="flex" mt="2" alignItems="center">
@@ -89,7 +89,7 @@ const SingleAttire = (props: GreetProps) => {
               <StarIcon key={i} color={i < 5 ? "teal.500" : "gray.300"} />
             ))}
           <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {10} reviews
+            {2} reviews
           </Box>
         </Box>
       </Box>
