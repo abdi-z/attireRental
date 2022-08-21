@@ -67,22 +67,40 @@ const Navbar: React.FC = () => {
             More
             <ChevronDownIcon />
           </Link>
-
-          <Link to="/register">
-            <Button
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"md"}
-              fontWeight={600}
-              rounded="md"
-              color={"white"}
-              bg={"red.400"}
-              _hover={{
-                bg: "red.300",
-              }}>
-              Join Us
-              <CheckIcon style={{ paddingLeft: "5px" }} />
-            </Button>
-          </Link>
+          {email ? (
+            <Link to="/login">
+              <Button
+                display={{ base: "none", md: "inline-flex" }}
+                fontSize={"md"}
+                fontWeight={600}
+                rounded="md"
+                color={"white"}
+                bg={"red.500"}
+                _hover={{
+                  bg: "red.400",
+                }}
+                onClick={handleClick}>
+                Log out
+                <CheckIcon style={{ paddingLeft: "5px" }} />
+              </Button>
+            </Link>
+          ) : (
+            <Link to="/register">
+              <Button
+                display={{ base: "none", md: "inline-flex" }}
+                fontSize={"md"}
+                fontWeight={600}
+                rounded="md"
+                color={"white"}
+                bg={"red.400"}
+                _hover={{
+                  bg: "red.300",
+                }}>
+                Join Us
+                <CheckIcon style={{ paddingLeft: "5px" }} />
+              </Button>
+            </Link>
+          )}
         </div>
       </nav>
     </>

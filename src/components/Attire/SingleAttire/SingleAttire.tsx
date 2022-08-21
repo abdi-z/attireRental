@@ -42,8 +42,6 @@ const SingleAttire = (props: GreetProps) => {
           `http://localhost:5000/api/locationdetails/${props.attire.locationID}`
         );
         setLocation(result2.data.state);
-        console.log(location);
-        console.log(price);
         setLoading(false);
       } catch (error) {
         console.log(error);
