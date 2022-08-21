@@ -62,6 +62,7 @@ export default function Home() {
         </Flex>
         <Flex flex={1}>
           <Image
+            padding={3}
             alt={"Login Image"}
             objectFit={"cover"}
             src={process.env.PUBLIC_URL + `/img/hp.jpg`}
@@ -89,14 +90,17 @@ export default function Home() {
             smart “Daily Agenda” every morning.
           </Text>
           <Stack spacing={6} direction={"row"}>
-            <Button
-              rounded={"full"}
-              px={6}
-              colorScheme={"orange"}
-              bg={"orange.400"}
-              _hover={{ bg: "orange.500" }}>
-              Create An Account
-            </Button>
+            <Link to="/register">
+              <Button
+                rounded={"full"}
+                bg={"#2D3748"}
+                color={"white"}
+                _hover={{
+                  bg: "red.400",
+                }}>
+                Get Started
+              </Button>
+            </Link>
             <Button rounded={"full"} px={6}>
               Learn more
             </Button>
