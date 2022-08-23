@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
             How it works
           </Link>
 
-          <Link className="link" to="/dummy">
+          <Link className="link" to="/earn">
             Earn
           </Link>
           <Link className="link" to="/dummy">

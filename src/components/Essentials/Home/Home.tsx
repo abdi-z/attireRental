@@ -40,8 +40,8 @@ export default function Home() {
               </Text>{" "}
             </Heading>
             <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-              The project board is an exclusive resource for contract work. It's
-              perfect for freelancers, agencies, and moonlighters.
+              A free platform where you can rent other people's attires or post
+              your own to make easy money.
             </Text>
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
               <Link to="/attires">
@@ -85,9 +85,15 @@ export default function Home() {
             </Text>
           </Heading>
           <Text color={"gray.500"} maxW={"3xl"}>
-            Never miss a meeting. Never be late for one too. Keep track of your
-            meetings and receive smart reminders in appropriate times. Read your
-            smart “Daily Agenda” every morning.
+            Not everyone has the privilege to buy brand new clothes that would
+            be used only once for an occasion. Example of such can include
+            buying a dress that will be used only once or maybe twice for an
+            event and will be a huge waste of money as such items start with
+            cost of around rupees 45,000. Resigna will solve the problem by
+            allowing users to rent out these expensive clothing items for a
+            fraction of their price e.g. 15% . This will also allow users to
+            make some easy money by renting out their clothes that are eating
+            dust in their closets.
           </Text>
           <Stack spacing={6} direction={"row"}>
             <Link to="/register">
