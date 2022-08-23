@@ -21,6 +21,7 @@ import StageOne from "./components/Attire/CreateAttire/StageOne";
 import StageTwo from "./components/Attire/CreateAttire/StageTwo";
 import StageThree from "./components/Attire/CreateAttire/StageThree";
 import { AuthContext } from "./context/AuthContext";
+import CreateAttire from "./components/Attire/CreateAttire/CreateAttire";
 const colors = {
   brand: {
     900: "#1a365d",
@@ -32,7 +33,6 @@ const colors = {
 const theme = extendTheme({ colors });
 
 const App: React.FC = () => {
-
   return (
     <ChakraProvider theme={theme}>
       <>
@@ -57,6 +57,7 @@ const App: React.FC = () => {
               <Route path="/earn/setLocation" element={<StageOne />} />
               <Route path="/earn/setPrice" element={<StageTwo />} />
               <Route path="/earn/setDetails" element={<StageThree />} />
+              <Route path="/attires/create" element={<CreateAttire />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Box>
@@ -66,9 +67,5 @@ const App: React.FC = () => {
     </ChakraProvider>
   );
 };
-
-//added comment by daniyal
-
-//some change by ar
 
 export default App;

@@ -29,7 +29,7 @@ const Login = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    Axios.post("api/users/login", {
+    Axios.post("http://localhost:5000/api/users/login", {
       email,
       password,
     })
