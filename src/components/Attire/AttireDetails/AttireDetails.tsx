@@ -73,7 +73,7 @@ const AttireDetails = () => {
           <Image
             rounded={"md"}
             alt={"product image"}
-            src={tshirt}
+            src={attire.imageURL}
             fit={"cover"}
             align={"center"}
             w={"100%"}

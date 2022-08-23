@@ -12,6 +12,8 @@ const AllAttires: React.FC = () => {
   const [attires, setAttires] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [postsPerPage] = React.useState(10);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +29,7 @@ const AllAttires: React.FC = () => {
     fetchData();
   }, []);
 
+  
   return (
     <div>
       <CategoriesAttire />

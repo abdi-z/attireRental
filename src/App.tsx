@@ -16,6 +16,7 @@ import AttireDetails from "./components/Attire/AttireDetails/AttireDetails";
 import { CategoryDetail } from "./components/Attire/CategoryDetail/CategoryDetail";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 import { SearchResults } from "./components/Essentials/SearchResults/SearchResults";
+import CreateAttire from "./components/Attire/CreateAttire/CreateAttire";
 const colors = {
   brand: {
     900: "#1a365d",
@@ -47,6 +48,7 @@ const App: React.FC = () => {
               />
               <Route path="/attires/search/:name" element={<SearchResults />} />
               <Route path="/details" element={<AttireDetails />} />
+              <Route path="/attires/create" element={<CreateAttire />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Box>

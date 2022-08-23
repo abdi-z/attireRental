@@ -53,7 +53,7 @@ const SingleAttire = (props: GreetProps) => {
   return (
     <Box bg="white.200" maxW="sm" className="zoom">
       <Box>
-        <Image src={props.attire.imageURL} borderRadius="xl" />
+        <Image src={props.attire.imageURL} borderRadius="xl" maxW={250} maxH={200} minW={250} minH={200}/>
       </Box>
       <Box p="3">
         <Box display="flex" alignItems="baseline">
