@@ -17,7 +17,7 @@ import AttireDetails from "./components/Attire/AttireDetails/AttireDetails";
 import { CategoryDetail } from "./components/Attire/CategoryDetail/CategoryDetail";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 import { SearchResults } from "./components/Essentials/SearchResults/SearchResults";
-import StageOne from "./components/Attire/CreateAttire/StageOne";
+import { StageOne } from "./components/Attire/CreateAttire/StageOne";
 import StageTwo from "./components/Attire/CreateAttire/StageTwo";
 import StageThree from "./components/Attire/CreateAttire/StageThree";
 import { AuthContext } from "./context/AuthContext";

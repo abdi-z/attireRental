@@ -16,7 +16,7 @@ const Earn = () => {
   const { user, email } = useAuthContext();
   return (
     <>
-      {email ? (
+      {!email ? (
         <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
           <Flex flex={1} align={"center"} justify={"center"} m={5}>
             <Box boxSize="md">

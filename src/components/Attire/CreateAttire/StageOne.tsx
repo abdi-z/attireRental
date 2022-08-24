@@ -9,71 +9,76 @@ import {
   IconProps,
   Stack,
   Text,
+  Select,
+  FormControl,
+  Box,
+  FormLabel,
+  Input,
 } from "@chakra-ui/react";
 import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { Link } from "react-router-dom";
-const StageOne = () => {
+export const StageOne = () => {
+  const [stateLoc, setStateLoc] = React.useState("");
+  const [inputLocation, setInputLocation] = React.useState("");
   const { user, email } = useAuthContext();
-  if (email) {
+  if (!email) {
     return <Navigate to="/earn" replace />;
   }
-  return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
-      <Flex p={8} flex={1} justify={"center"}>
-        <Stack spacing={6} w={"full"} maxW={"lg"}>
-          <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-            <Text
-              as={"span"}
-              position={"relative"}
-              _after={{
-                content: "''",
-                width: "full",
-                height: { base: "20%", md: "30%" },
-                position: "absolute",
-                bottom: 1,
-                left: 0,
-                zIndex: -1,
-              }}
-              color={"black.800"}>
-              Lets get started,
-            </Text>
-            <br /> Set up your{" "}
-            <Text color={"red.400"} as={"span"}>
-              Location
-            </Text>{" "}
-          </Heading>
-          <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-            Set up the location you want the potential renter to show up to
-            receive the attire
-          </Text>
-          <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-            <Link to="/attires" state={user}>
-              <Button
-                rounded={"full"}
-                bg={"red.400"}
-                color={"white"}
-                _hover={{
-                  bg: "red.800",
-                }}>
-                Checkout Attires
-              </Button>
-            </Link>
 
-            <Button rounded={"full"}>How It Works</Button>
+  const handleInputChange = (sta: any) => {
+    setStateLoc(sta);
+    console.log(sta);
+  };
+  return (
+    <Stack minH={"50vh"} direction={{ base: "column", md: "row" }}>
+      <Flex minH={"50vh"} align={"center"} justify={"center"}>
+        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+          <Stack align={"center"}>
+            <Heading fontSize={"4xl"}>Set Location</Heading>
+            <Text fontSize={"lg"} color={"gray.600"}>
+              to enjoy all of our cool{" "}
+              <Link to="/" color={"blue.400"}>
+                features
+              </Link>{" "}
+              ✌️
+            </Text>
           </Stack>
+          <Box rounded={"lg"} boxShadow={"lg"} p={8}>
+            <Stack spacing={4}>
+              <Select
+                placeholder="Select option"
+                onChange={(e) => handleInputChange(e.target.value)}>
+                <option value="Punjab">Punjab</option>
+                <option value="Sindh">Sindh</option>
+                <option value="KPK">KPK</option>
+                <option value="Balochistan">Balochistan</option>
+              </Select>
+              <FormControl id="inputLocation">
+                <FormLabel>Address:</FormLabel>
+                <Input
+                  type="text"
+                  onChange={(e) => setInputLocation(e.target.value)}
+                  value={inputLocation}
+                  placeholder="123-A, ABC Town, General Town"
+                />
+              </FormControl>
+              <Stack spacing={10}>
+                <Link to="/earn/setPrice" state={{stateLoc, inputLocation} }>
+                  <Button
+                    bg={"blue.400"}
+                    color={"white"}
+                    _hover={{
+                      bg: "blue.500",
+                    }}>
+                    Continue
+                  </Button>
+                </Link>
+              </Stack>
+            </Stack>
+          </Box>
         </Stack>
-      </Flex>
-      <Flex flex={1}>
-        <Image
-          padding={3}
-          alt={"Login Image"}
-          objectFit={"cover"}
-          src={process.env.PUBLIC_URL + `/img/hp.jpg`}
-        />
       </Flex>
     </Stack>
   );
 };
-
-export default StageOne;
