@@ -16,6 +16,7 @@ import {
   IconButton,
   Input,
 } from "@chakra-ui/react";
+import { Tooltip } from "@chakra-ui/react";
 import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { Link } from "react-router-dom";
@@ -86,15 +87,18 @@ export const StageOne = () => {
               Set up pickup a location📍
             </Text>
             <br />
-            <Text as={"span"} color={"red.400"}>
-              {/* use everywhere! */}
-            </Text>
           </Heading>
 
           <Stack spacing={2}>
             <FormControl id="title">
               <FormLabel>
-                State: <QuestionOutlineIcon mb={0.5} />
+                State:{" "}
+                <Tooltip
+                  fontSize="md"
+                  label="Add the state of the location of attire."
+                  aria-label="A tooltip">
+                  <QuestionOutlineIcon mb={0.5} />
+                </Tooltip>
               </FormLabel>
               <Select
                 placeholder="Select a relevant category"
@@ -107,7 +111,13 @@ export const StageOne = () => {
             </FormControl>
             <FormControl id="description">
               <FormLabel>
-                Location <QuestionOutlineIcon />
+                Location{" "}
+                <Tooltip
+                  fontSize="md"
+                  label="Give the complete address of the pickup location of the attire."
+                  aria-label="A tooltip">
+                  <QuestionOutlineIcon />
+                </Tooltip>
               </FormLabel>
               <Input
                 type="text"

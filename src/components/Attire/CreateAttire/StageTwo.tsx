@@ -15,6 +15,7 @@ import {
   FormLabel,
   IconButton,
   Input,
+  Tooltip,
 } from "@chakra-ui/react";
 import { QuestionOutlineIcon } from "@chakra-ui/icons";
 import { useLocation } from "react-router-dom";
@@ -37,10 +38,7 @@ const StageTwo = () => {
         spacing={{ base: 8, md: 10 }}
         py={{ base: 20, md: 21 }}
         direction={{ base: "column", md: "row" }}
-        mx={10}
-        >
-        
-
+        mx={10}>
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
           <Heading
             lineHeight={1.1}
@@ -70,29 +68,55 @@ const StageTwo = () => {
           <Stack spacing={2}>
             <FormControl id="actualPrice">
               <FormLabel>
-                Actual Price: <QuestionOutlineIcon />
+                Actual Price:{" "}
+                <Tooltip
+                  fontSize="md"
+                  label="This the actual cash you will get to keep after the attire is returned."
+                  aria-label="A tooltip">
+                  <QuestionOutlineIcon />
+                </Tooltip>
               </FormLabel>
               <Input
                 type="text"
                 onChange={(e) => setActualPrice(e.target.value)}
                 value={actualPrice}
+                placeholder="e.g. 1000"
               />
             </FormControl>
             <FormControl id="securityFee">
-              <FormLabel>
-                Security Fee: <QuestionOutlineIcon />
-              </FormLabel>
+              <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+                <FormLabel>
+                  Security Fee:{" "}
+                  <Tooltip
+                    fontSize="md"
+                    label="This is the security which will be initially paid by the renter to you but will be returned by you once the attire is returned by the renter."
+                    aria-label="A tooltip">
+                    <QuestionOutlineIcon />
+                  </Tooltip>
+                </FormLabel>
+                {parseInt(actualPrice)>0?<Text color={"grey"}> Recommended Security Fee: Rs.{" "}{ Number(actualPrice)* 10} </Text>:<div></div>}
+
+                
+              </div>
+
               <Input
                 type="text"
                 onChange={(e) => setSecurityFee(e.target.value)}
                 value={securityFee}
+                placeholder="e.g. 14500"
               />
             </FormControl>
             <FormControl id="upFrontPayment">
               <FormLabel>
-                Upfront Payment: <QuestionOutlineIcon />
+                Upfront Payment:{" "}
+                <Tooltip
+                  fontSize="md"
+                  label="This is the total amount renter will pay upfront to you to rent the attire."
+                  aria-label="A tooltip">
+                  <QuestionOutlineIcon />
+                </Tooltip>
               </FormLabel>
-              {upFrontPayment}
+              Rs. {upFrontPayment}
             </FormControl>
 
             <Stack

@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   FormControl,
   FormLabel,
+  Tooltip,
   Select,
   Input,
 } from "@chakra-ui/react";
@@ -197,26 +198,46 @@ export default function StageThree() {
           <Stack spacing={2}>
             <FormControl id="title">
               <FormLabel>
-                Title <QuestionOutlineIcon mb={0.5} />
+                Title{" "}
+                <Tooltip
+                  fontSize="md"
+                  label="Give a brief title that describes your attire. "
+                  aria-label="A tooltip">
+                  <QuestionOutlineIcon mb={0.5} />
+                </Tooltip>
               </FormLabel>
               <Input
                 type="text"
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
+                placeholder="A brown J. Shalwar Kameez "
               />
             </FormControl>
             <FormControl id="description">
               <FormLabel>
-                Description <QuestionOutlineIcon />
+                Description{" "}
+                <Tooltip
+                  fontSize="md"
+                  label="Write a comprehensive detailed note of your attire with as many details as possible ."
+                  aria-label="A tooltip">
+                  <QuestionOutlineIcon />
+                </Tooltip>
               </FormLabel>
               <Input
                 type="text"
                 onChange={(e) => setDescription(e.target.value)}
                 value={description}
+                placeholder="A 32-waist Shalwar Kameez with a long neckline and a long sleeves of brand: J."
               />
             </FormControl>
             <FormLabel>
-              Category <QuestionOutlineIcon mb={0.5} />
+              Category{" "}
+              <Tooltip
+                fontSize="md"
+                label="Select one of the many available relevant to your attire."
+                aria-label="A tooltip">
+                <QuestionOutlineIcon mb={0.5} />
+              </Tooltip>
             </FormLabel>
             <Select
               placeholder="Select a relevant category"
@@ -250,12 +271,18 @@ export default function StageThree() {
             <FormControl id="daysAllowed">
               <FormLabel>
                 Rent allowed Days
-                <QuestionOutlineIcon ml={1} />
+                <Tooltip
+                  fontSize="md"
+                  label="Select the maximum number of days a renter can rent out your attire for at one time."
+                  aria-label="A tooltip">
+                  <QuestionOutlineIcon ml={1} mb={0.5} />
+                </Tooltip>
               </FormLabel>
               <Input
                 type="number"
                 onChange={(e) => setMaxDays(e.target.value)}
                 value={maxDays}
+                placeholder={"e.g. 7"}
               />
             </FormControl>
             <button
