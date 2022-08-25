@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+
 import { Link } from "react-router-dom";
 // import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useLogout } from "../../../hooks/useLogout";
@@ -20,6 +21,7 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
+import { BsPersonCircle } from "react-icons/bs";
 
 import user from "./user.png";
 import SearchBar from "../SearchBar/SearchBar";
@@ -69,6 +71,7 @@ const Navbar: React.FC = () => {
           </Link>
           {email ? (
             <Link to="/login">
+              {/* <Icon as={BsPersonCircle} /> */}
               <Button
                 display={{ base: "none", md: "inline-flex" }}
                 fontSize={"md"}
