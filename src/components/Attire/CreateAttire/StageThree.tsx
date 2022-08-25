@@ -104,15 +104,30 @@ export default function StageThree() {
       );
       console.log("THE LOCATION WAS " + result2.data._id);
       setLocationID(result2.data._id);
+      console.log("<------------------->");
+      console.log(`the object will be 
+      {
+        categoryID: ${categoryID},    has type ${typeof categoryID}
+        title: ${title},  has type ${typeof title}
+        createdByID: ${resultId.data._id},  has type ${typeof resultId.data._id}
+        availabilityFlag: ${availabilityFlag},  has type ${typeof availabilityFlag}
+        maxDays: ${maxDays},  has type ${typeof maxDays}
+        imageURL: ${imageURL},  has type ${typeof imageURL}
+        locationID: ${result2.data._id},  has type ${typeof result2.data._id}
+        priceID: ${result.data._id} ,  has type ${typeof result.data._id}
+        attireDescription: ${description} ,  has type ${typeof description}
+        }
+      `);
+      console.log("<------------------->");
       const result3 = await axios.post(`http://localhost:5000/api/attires`, {
-        availabilityFlag,
         categoryID,
         title,
         createdByID: resultId.data._id,
-        attireDescription: description,
+        maxDays,
         imageURL,
         locationID: result2.data._id,
         priceID: result.data._id,
+        attireDescription: description,
       });
       //probably some type error from model and schema
       console.log("THE ATTIRE WAS " + result3.data._id);
@@ -126,8 +141,8 @@ export default function StageThree() {
     <Container maxW={"7xl"}>
       <Stack
         align={"center"}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
+        spacing={{ base: 5, md: 20 }}
+        py={{ base: 20, md: 2 }}
         direction={{ base: "column", md: "row" }}>
         <Flex
           flex={1}
@@ -135,41 +150,20 @@ export default function StageThree() {
           align={"center"}
           position={"relative"}
           w={"full"}>
-          <Blob
-            w={"150%"}
-            h={"150%"}
-            position={"absolute"}
-            top={"-20%"}
-            left={0}
-            zIndex={-1}
-            color={useColorModeValue("red.50", "red.400")}
-          />
           <Box
             position={"relative"}
             height={"300px"}
             rounded={"2xl"}
-            boxShadow={"2xl"}
             width={"full"}
             overflow={"hidden"}>
-            <IconButton
-              aria-label={"Play Button"}
-              variant={"ghost"}
-              _hover={{ bg: "transparent" }}
-              size={"lg"}
-              color={"white"}
-              position={"absolute"}
-              left={"50%"}
-              top={"50%"}
-              transform={"translateX(-50%) translateY(-50%)"}
-            />
             <Image
               alt={"Hero Image"}
-              fit={"cover"}
+              fit={"inherit"}
               align={"center"}
-              w={"100%"}
-              h={"100%"}
+              w={"200%"}
+              // h={"150%"}
               src={
-                "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80"
+                "https://img.freepik.com/premium-vector/women-girls-flat-style-isolated_566661-10724.jpg?w=900"
               }
             />
           </Box>
@@ -192,7 +186,7 @@ export default function StageThree() {
                 bg: "red.400",
                 zIndex: -1,
               }}>
-              Set up rest of details,
+              Let's wrap up,
             </Text>
             <br />
             <Text as={"span"} color={"red.400"}>

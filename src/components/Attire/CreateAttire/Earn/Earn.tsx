@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import styles from "./Earn.module.css";
-
+import { QuestionOutlineIcon } from "@chakra-ui/icons";
 const Earn = () => {
   const { user, email } = useAuthContext();
   return (
@@ -77,9 +77,16 @@ const Earn = () => {
                 </Heading>
                 <Text fontSize={{ base: "lg", lg: "lg" }} color={"gray.500"}>
                   You just took your first step to contribute to the comm-
-                  unity. This will help other people to rent your attire and
-                  help you earn a lil side cash! <br /> Let's get those dust
-                  eating dresses out and put them to use
+                  unity. Let's get those dust eating dresses out and put them to
+                  use
+                </Text>
+                <Text fontSize={{ base: "md", md: "sm" }} color={"gray.500"}>
+                  <b>
+                    Disclaimer <QuestionOutlineIcon mb={0.5}/>{" "}
+                  </b>{" "}
+                  Resigna and its affiliated companies are not responsible for
+                  any loss or damage caused by the use of this service. By continuing,
+                  you agree to the <a href="https://" target="_none">terms and conditions of this service</a>.
                 </Text>
                 <Stack direction={{ base: "column", md: "row" }} spacing={5}>
                   <Flex

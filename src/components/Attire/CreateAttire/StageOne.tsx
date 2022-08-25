@@ -13,11 +13,13 @@ import {
   FormControl,
   Box,
   FormLabel,
+  IconButton,
   Input,
 } from "@chakra-ui/react";
 import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { Link } from "react-router-dom";
+import { QuestionOutlineIcon } from "@chakra-ui/icons";
 export const StageOne = () => {
   const [stateLoc, setStateLoc] = React.useState("");
   const [inputLocation, setInputLocation] = React.useState("");
@@ -31,54 +33,106 @@ export const StageOne = () => {
     console.log(sta);
   };
   return (
-    <Stack minH={"50vh"} direction={{ base: "column", md: "row" }}>
-      <Flex minH={"50vh"} align={"center"} justify={"center"}>
-        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-          <Stack align={"center"}>
-            <Heading fontSize={"4xl"}>Set Location</Heading>
-            <Text fontSize={"lg"} color={"gray.600"}>
-              to enjoy all of our cool{" "}
-              <Link to="/" color={"blue.400"}>
-                features
-              </Link>{" "}
-              ✌️
+    <Container maxW={"7xl"}>
+      <Stack
+        align={"center"}
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 20, md: 26 }}
+        direction={{ base: "column", md: "row" }}>
+        <Flex
+          flex={1}
+          justify={"center"}
+          align={"center"}
+          position={"relative"}
+          w={"full"}>
+          <Box
+            position={"relative"}
+            height={"300px"}
+            rounded={"2xl"}
+            // boxShadow={"2xl"}
+            width={"full"}
+            overflow={"hidden"}>
+            <Image
+              alt={"Hero Image"}
+              fit={"cover"}
+              align={"center"}
+              w={"100%"}
+              h={"100%"}
+              src={
+                "https://img.freepik.com/free-vector/business-partners-handshake_74855-5222.jpg?w=1380&t=st=1661446580~exp=1661447180~hmac=401d0f59df91ab4dc0aec93b2c72d9ed1189d1a86fcf93b8fedd6e3e159bf526"
+              }
+            />
+          </Box>
+        </Flex>
+
+        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+          <Heading
+            lineHeight={1.1}
+            fontWeight={600}
+            fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}>
+            <Text
+              as={"span"}
+              position={"relative"}
+              _after={{
+                content: "''",
+                width: "full",
+                height: "30%",
+                position: "absolute",
+                bottom: 1,
+                left: 0,
+                bg: "red.400",
+                zIndex: -1,
+              }}>
+              Set up pickup a location📍
             </Text>
-          </Stack>
-          <Box rounded={"lg"} boxShadow={"lg"} p={8}>
-            <Stack spacing={4}>
+            <br />
+            <Text as={"span"} color={"red.400"}>
+              {/* use everywhere! */}
+            </Text>
+          </Heading>
+
+          <Stack spacing={2}>
+            <FormControl id="title">
+              <FormLabel>
+                State: <QuestionOutlineIcon mb={0.5} />
+              </FormLabel>
               <Select
-                placeholder="Select option"
+                placeholder="Select a relevant category"
                 onChange={(e) => handleInputChange(e.target.value)}>
                 <option value="Punjab">Punjab</option>
-                <option value="Sindh">Sindh</option>
                 <option value="KPK">KPK</option>
                 <option value="Balochistan">Balochistan</option>
+                <option value="Sindh">Sindh</option>
               </Select>
-              <FormControl id="inputLocation">
-                <FormLabel>Address:</FormLabel>
-                <Input
-                  type="text"
-                  onChange={(e) => setInputLocation(e.target.value)}
-                  value={inputLocation}
-                  placeholder="123-A, ABC Town, General Town"
-                />
-              </FormControl>
-              <Stack spacing={10}>
-                <Link to="/earn/setPrice" state={{stateLoc, inputLocation} }>
-                  <Button
-                    bg={"blue.400"}
-                    color={"white"}
-                    _hover={{
-                      bg: "blue.500",
-                    }}>
-                    Continue
-                  </Button>
-                </Link>
-              </Stack>
+            </FormControl>
+            <FormControl id="description">
+              <FormLabel>
+                Location <QuestionOutlineIcon />
+              </FormLabel>
+              <Input
+                type="text"
+                onChange={(e) => setInputLocation(e.target.value)}
+                value={inputLocation}
+              />
+            </FormControl>
+
+            <Stack
+              spacing={{ base: 4, sm: 6 }}
+              direction={{ base: "column", sm: "row" }}>
+              <Link to="/earn/setPrice" state={{ stateLoc, inputLocation }}>
+                <Button
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}>
+                  Continue
+                </Button>
+              </Link>
             </Stack>
-          </Box>
+          </Stack>
         </Stack>
-      </Flex>
-    </Stack>
+      </Stack>
+    </Container>
   );
 };
