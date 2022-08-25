@@ -15,6 +15,7 @@ import {
   FormLabel,
   IconButton,
   Input,
+  Progress,
   Tooltip,
 } from "@chakra-ui/react";
 import { QuestionOutlineIcon } from "@chakra-ui/icons";
@@ -33,6 +34,8 @@ const StageTwo = () => {
 
   return (
     <Container maxW={"7xl"}>
+      <Progress value={66} height="2rem" colorScheme="pink" mt={10} />
+      <Text color={"white"} style={{position:"absolute", top:"23%", left:"50%"}}>66%</Text>
       <Stack
         align={"center"}
         spacing={{ base: 8, md: 10 }}
@@ -84,7 +87,12 @@ const StageTwo = () => {
               />
             </FormControl>
             <FormControl id="securityFee">
-              <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}>
                 <FormLabel>
                   Security Fee:{" "}
                   <Tooltip
@@ -94,9 +102,15 @@ const StageTwo = () => {
                     <QuestionOutlineIcon />
                   </Tooltip>
                 </FormLabel>
-                {parseInt(actualPrice)>0?<Text color={"grey"}> Recommended Security Fee: Rs.{" "}{ Number(actualPrice)* 10} </Text>:<div></div>}
-
-                
+                {parseInt(actualPrice) > 0 ? (
+                  <Text color={"grey"}>
+                    {" "}
+                    Recommended Security Fee: Rs. {Number(actualPrice) *
+                      10}{" "}
+                  </Text>
+                ) : (
+                  <div></div>
+                )}
               </div>
 
               <Input

@@ -14,6 +14,7 @@ import {
   IconProps,
   useColorModeValue,
   FormControl,
+  Progress,
   FormLabel,
   Tooltip,
   Select,
@@ -140,6 +141,12 @@ export default function StageThree() {
   };
   return (
     <Container maxW={"7xl"}>
+      <Progress value={97} height="2rem" colorScheme="pink" mt={10}  backgroundColor={"lightgrey"} />
+      <Text
+        color={"white"}
+        style={{ position: "absolute", top: "17.5%", left: "50%" }}>
+        97%
+      </Text>
       <Stack
         align={"center"}
         spacing={{ base: 5, md: 20 }}

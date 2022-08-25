@@ -15,6 +15,7 @@ import {
   FormLabel,
   IconButton,
   Input,
+  Progress,
 } from "@chakra-ui/react";
 import { Tooltip } from "@chakra-ui/react";
 import { Navigate } from "react-router-dom";
@@ -35,6 +36,12 @@ export const StageOne = () => {
   };
   return (
     <Container maxW={"7xl"}>
+      <Progress value={33} height="2rem" colorScheme="pink" mt={10} />
+      <Text
+        color={"white"}
+        style={{ position: "absolute", top: "22.5%", left: "50%" }}>
+        33%
+      </Text>
       <Stack
         align={"center"}
         spacing={{ base: 8, md: 10 }}
