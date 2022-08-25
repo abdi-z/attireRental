@@ -141,7 +141,13 @@ export default function StageThree() {
   };
   return (
     <Container maxW={"7xl"}>
-      <Progress value={97} height="2rem" colorScheme="pink" mt={10}  backgroundColor={"lightgrey"} />
+      <Progress
+        value={97}
+        height="2rem"
+        colorScheme="pink"
+        mt={10}
+        backgroundColor={"lightgrey"}
+      />
       <Text
         color={"white"}
         style={{ position: "absolute", top: "17.5%", left: "50%" }}>
@@ -295,7 +301,8 @@ export default function StageThree() {
             <button
               id="upload-widget"
               className="cloudinary-button"
-              onClick={handleOpenWidget}>
+              onClick={handleOpenWidget}
+              style={{ backgroundColor: "#f56565" }}>
               Upload Image
             </button>{" "}
             <br />
@@ -311,7 +318,8 @@ export default function StageThree() {
               colorScheme={"red"}
               bg={"red.400"}
               _hover={{ bg: "red.500" }}
-              onClick={handleSubmit}>
+              onClick={handleSubmit}
+              justifyContent={"center"}>
               Submit
             </Button>
             {/* <Button
