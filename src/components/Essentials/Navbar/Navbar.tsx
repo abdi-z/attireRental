@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
         </div>
         <SearchBar />
         <div className="right-items">
-          <Link className="link" to="/dummy">
+          <Link className="link" to="/howitworks">
             How it works
           </Link>
 

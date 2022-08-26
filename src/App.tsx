@@ -22,6 +22,7 @@ import StageTwo from "./components/Attire/CreateAttire/StageTwo";
 import StageThree from "./components/Attire/CreateAttire/StageThree";
 import { AuthContext } from "./context/AuthContext";
 import CreateAttire from "./components/Attire/CreateAttire/CreateAttire";
+import Works from "./components/Essentials/HowItWorks/Works"
 const colors = {
   brand: {
     900: "#1a365d",
@@ -58,6 +59,7 @@ const App: React.FC = () => {
               <Route path="/earn/setPrice" element={<StageTwo />} />
               <Route path="/earn/setDetails" element={<StageThree />} />
               <Route path="/attires/create" element={<CreateAttire />} />
+              <Route path="/howitworks" element={<Works />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Box>
