@@ -94,7 +94,7 @@ export default function Home() {
                     5000,
                     "secure.",
                     5000,
-                    "convenient.",
+                    "exciting.",
                     5000,
                   ]}
                   speed={20} // Must be in range between 1 and 99!
