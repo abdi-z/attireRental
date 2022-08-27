@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
 export default function Home() {
   return (
     <>
@@ -35,9 +36,12 @@ export default function Home() {
                 Welcome to,
               </Text>
               <br />{" "}
-              <Text color={"red.400"} as={"span"}>
-                Resigna
-              </Text>{" "}
+              <section>
+                <div className="content">
+                  <h2>Resigna</h2>
+                  <h2>Resigna</h2>
+                </div>
+              </section>
             </Heading>
             <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
               A free platform where you can rent other people's attires or post
@@ -79,9 +83,25 @@ export default function Home() {
             fontWeight={600}
             fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
             lineHeight={"110%"}>
-            Renting attires{" "}
+            Renting attires made more{" "}
             <Text as={"span"} color={"red.400"}>
-              made easy
+              <div style={{ width: "20em" }}>
+                <TypeAnimation
+                  sequence={[
+                    "easy.",
+                    5000,
+                    "profitable.",
+                    5000,
+                    "secure.",
+                    5000,
+                    "convenient.",
+                    5000,
+                  ]}
+                  speed={20} // Must be in range between 1 and 99!
+                  wrapper="span"
+                  repeat={Infinity}
+                />
+              </div>
             </Text>
           </Heading>
           <Text color={"gray.500"} maxW={"3xl"}>
