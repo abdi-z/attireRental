@@ -23,6 +23,7 @@ JWT Auth <br/>
 <br/>
 
 ### Features to complete (later on..):
+Add multiple horizontal card comps <br/>
 Recommended Price Val <br/>
 Pagination <br/>
 Chating func <br/>
