@@ -22,10 +22,14 @@ Redux <br/>
 JWT Auth <br/>
 <br/>
 
+![Personal Attire Proj](https://user-images.githubusercontent.com/92116477/205488014-223c4b89-a7b2-4501-b981-79d7d43dd26c.png)
+
 ### Features to complete (later on..):
 Add multiple horizontal card comps <br/>
 Recommended Price Val <br/>
 Pagination <br/>
+
 Chating func <br/>
 Recommendation Sys <br/>
 Dark Mode <br/>
+
